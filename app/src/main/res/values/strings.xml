@@ -1,6 +1,13 @@
 <resources>
-    <string name="app_name">ImageGallery</string>
+    <string name="app_name">Gallery</string>
     <string name="action_settings">Settings</string>
     <string name="title_image">Image</string>
     <string name="title_video">Video</string>
+    <string name="image">Image</string>
+    <string name="permission_setting">Permission Setting</string>
+    <string name="setting">Setting</string>
+    <string name="permission_setting_screen">App requires storage permission for access device photos and videos. Allow permission from settings.</string>
+    <string name="permission_message">App requires storage permission for access device photos and videos.</string>
+    <string name="permission">Permission</string>
+    <string name="allow">Allow</string>
 </resources>

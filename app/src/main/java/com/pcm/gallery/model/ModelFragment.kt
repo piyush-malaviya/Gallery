@@ -1,4 +1,4 @@
-package com.pcm.imagegallery.model
+package com.pcm.gallery.model
 
 import android.support.v4.app.Fragment
 

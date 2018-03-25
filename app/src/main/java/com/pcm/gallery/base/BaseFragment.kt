@@ -1,4 +1,4 @@
-package com.pcm.imagegallery.base
+package com.pcm.gallery.base
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.pcm.imagegallery.R
+import com.pcm.gallery.R
 
 abstract class BaseFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(getLayoutResource(), container, false)
     }
 
@@ -21,7 +21,7 @@ abstract class BaseFragment : Fragment() {
         if (activity == null) {
             return
         }
-        val fm = activity.supportFragmentManager
+        val fm = activity!!.supportFragmentManager
         val ft = fm.beginTransaction()
 
         if (animate) {

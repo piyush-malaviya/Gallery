@@ -1,11 +1,11 @@
-package com.pcm.imagegallery.base
+package com.pcm.gallery.base
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.pcm.imagegallery.R
+import com.pcm.gallery.R
 
 abstract class BaseAppCompatActivity : AppCompatActivity() {
 

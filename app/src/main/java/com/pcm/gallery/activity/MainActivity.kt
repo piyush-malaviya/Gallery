@@ -1,4 +1,4 @@
-package com.pcm.imagegallery.activity
+package com.pcm.gallery.activity
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,11 +7,11 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.pcm.imagegallery.fragment.ImageGalleryFragment
-import com.pcm.imagegallery.model.ModelFragment
-import com.pcm.imagegallery.R
-import com.pcm.imagegallery.base.BaseAppCompatActivity
-import com.pcm.imagegallery.fragment.VideoGalleryFragment
+import com.pcm.gallery.fragment.ImageGalleryFragment
+import com.pcm.gallery.model.ModelFragment
+import com.pcm.gallery.R
+import com.pcm.gallery.base.BaseAppCompatActivity
+import com.pcm.gallery.fragment.VideoGalleryFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseAppCompatActivity(), View.OnClickListener {
