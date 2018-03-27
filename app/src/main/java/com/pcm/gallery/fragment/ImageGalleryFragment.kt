@@ -7,9 +7,11 @@ import android.support.v7.widget.GridLayoutManager
 import android.util.Log
 import android.view.View
 import com.pcm.gallery.R
+import com.pcm.gallery.activity.MediaListActivity
 import com.pcm.gallery.adapter.AdapterMediaAlbum
 import com.pcm.gallery.base.BaseFragment
 import com.pcm.gallery.constant.Constant
+import com.pcm.gallery.listener.OnItemClickListener
 import com.pcm.gallery.model.ModelAlbum
 import com.pcm.gallery.utils.PermissionHelper
 import com.pcm.gallery.utils.Rx2Helper
@@ -19,7 +21,7 @@ import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_image.*
 
-class ImageGalleryFragment : BaseFragment() {
+class ImageGalleryFragment : BaseFragment(), OnItemClickListener<ModelAlbum> {
 
     override fun getLayoutResource(): Int {
         return R.layout.fragment_image
@@ -42,7 +44,7 @@ class ImageGalleryFragment : BaseFragment() {
         mAdapter = AdapterMediaAlbum(context!!)
         rvImageList.layoutManager = GridLayoutManager(context, 2)
         rvImageList.adapter = mAdapter
-
+        mAdapter.setOnItemClickListener(this)
         requestPermission()
     }
 
@@ -130,4 +132,9 @@ class ImageGalleryFragment : BaseFragment() {
                     }
                 }))
     }
+
+    override fun onItemClick(v: View, obj: ModelAlbum, position: Int) {
+        startActivity(MediaListActivity.getActivityIntent(context!!, obj))
+    }
 }
+

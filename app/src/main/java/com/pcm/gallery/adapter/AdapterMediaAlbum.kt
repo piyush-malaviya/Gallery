@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.pcm.gallery.R
+import com.pcm.gallery.listener.OnItemClickListener
 import com.pcm.gallery.model.ModelAlbum
 import java.io.File
 
@@ -20,6 +21,7 @@ class AdapterMediaAlbum(context: Context) : RecyclerView.Adapter<AdapterMediaAlb
 
     var mContext: Context = context
     var mAlbumList = ArrayList<ModelAlbum>()
+    private var onItemClickListener: OnItemClickListener<ModelAlbum>? = null
 
     public fun setData(albumList: ArrayList<ModelAlbum>) {
         mAlbumList = ArrayList(albumList)
@@ -29,6 +31,10 @@ class AdapterMediaAlbum(context: Context) : RecyclerView.Adapter<AdapterMediaAlb
     public fun addAll(albumList: ArrayList<ModelAlbum>) {
         mAlbumList.addAll(ArrayList(albumList))
         notifyDataSetChanged()
+    }
+
+    public fun setOnItemClickListener(listener: OnItemClickListener<ModelAlbum>?) {
+        onItemClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -53,8 +59,15 @@ class AdapterMediaAlbum(context: Context) : RecyclerView.Adapter<AdapterMediaAlb
                     .thumbnail(0.4f)
                     .apply(requestOption)
                     .into(holder.imageView)
-
         }
+
+        holder.imageView.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                if (onItemClickListener != null) {
+                    onItemClickListener!!.onItemClick(v!!, album, position)
+                }
+            }
+        })
     }
 
     override fun getItemCount(): Int {
